@@ -11,11 +11,23 @@
   --color-grey-light-2: #f4f2f2;
   --color-grey-light-3: #f0eeee;
   --color-grey-light-4: #ccc;
+  --color-white: #fff;
+  --color-black: #000;
 
   --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
   --shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.08);
 
   --line: 1px solid var(--color-grey-light-2);
+
+  /* Screen breakpoint definitions */
+  --bp-2000: 125em;
+  --bp-1800: 112.5em;
+  --bp-1400: 87.5em;
+  --bp-1200: 75em;
+  --bp-1100: 68.75em;
+  --bp-900: 56.25em;
+  --bp-600: 37.5em;
+  --bp-500: 31.25em;
 }
 
 * {
@@ -58,4 +70,31 @@ a:hover {
 
 .notistack {
   font-size: 1.4rem;
+}
+
+/* Basic fontsize management */
+@media screen and (min-width: 125em) {
+  html {
+    font-size: 70%;
+  }
+}
+@media screen and (max-width: 112.5em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media screen and (max-width: 87.5em) {
+  html {
+    font-size: 50%;
+  }
+}
+@media screen and (max-width: 75em) {
+  html {
+    font-size: 43.75%;
+  }
+}
+@media screen and (max-width: 37.5em) {
+  html {
+    font-size: 40%;
+  }
 }
