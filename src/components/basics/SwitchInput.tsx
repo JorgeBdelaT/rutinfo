@@ -37,7 +37,10 @@ const Container = styled.div`
   flex-direction: row;
   font-size: 1.8rem;
   justify-content: flex-start;
-  margin-bottom: 2.8rem;
+
+  :not(:last-of-type) {
+    margin-bottom: 2.8rem;
+  }
 `;
 
 const Label = styled.label`
