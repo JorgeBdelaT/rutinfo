@@ -21,7 +21,7 @@ const HeaderContainer = styled.div`
   font-size: 1.8rem;
   justify-content: space-between;
   margin-bottom: 5rem;
-  padding: 1rem 10rem;
+  padding: 1rem 25rem;
   width: 100vw;
 `;
 

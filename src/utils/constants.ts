@@ -4,3 +4,4 @@ export const DEFAULT_RUT_INFO_TYPE = {
   loading: false,
   error: undefined,
 };
+export const NOTIFICATION_TIME = 3;

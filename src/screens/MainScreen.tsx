@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 
 import { SectionLayout } from '../components/ui/';
 import { SingleRutInput } from '../components/core/';
-import { SwitchInput } from '../components/basics/';
+import { SwitchInput, Button } from '../components/basics/';
+import { useNotifications } from '../hooks/';
 
 const MainScreen: React.FC = () => {
   const [singleRutOption, setSingleRutOption] = useState(true);
+  const { addNotification } = useNotifications();
 
   return (
     <SectionLayout>
@@ -23,6 +25,16 @@ const MainScreen: React.FC = () => {
       />
       {singleRutOption && <SingleRutInput />}
       {!singleRutOption && <div>sube un excel con ruts</div>}
+
+      <Button
+        text="Agregar notificacion"
+        onClick={() =>
+          addNotification({
+            type: 'error',
+            message: `wenaaa-${Math.random()}`,
+          })
+        }
+      />
     </SectionLayout>
   );
 };

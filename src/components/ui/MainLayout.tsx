@@ -13,7 +13,7 @@ const Container = styled.main`
   min-height: 100vh;
 
   section {
-    padding: 0 10rem;
+    padding: 0 25rem;
   }
 `;
 
