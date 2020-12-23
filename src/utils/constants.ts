@@ -5,3 +5,6 @@ export const DEFAULT_RUT_INFO_TYPE = {
   error: undefined,
 };
 export const NOTIFICATION_TIME = 3;
+export const INVALID_RUT_MSG = 'Rut inválido';
+export const REQUEST_ERROR_MSG = 'No se ha podido cargar la información';
+export const REQUEST_SUCCESS_MSG = 'Información cargada con éxito';

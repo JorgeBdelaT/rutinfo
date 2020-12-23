@@ -39,7 +39,11 @@ const Notifications: React.FC = () => {
 };
 
 const NotificationsContainer = styled.div`
+  align-items: flex-start;
   bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   left: 3rem;
   position: fixed;
 `;
@@ -49,7 +53,7 @@ interface NotificationContainerProps {
 }
 
 const notificationAnimation = keyframes`
-  0% { width: 0%; opacity: 0 }
+  0% { width: 0px; opacity: 0 }
   90% { width: 105%; opacity: 0.8 }
   100% { width: 100%; opacity: 1 }
 `;

@@ -7,7 +7,13 @@ const useNotifications = () => {
   const { notifications, setNotifications } = useContext(NotificationsContext)!;
 
   const addNotification = (notification: NotificationType) => {
-    setNotifications([...notifications, notification]);
+    if (
+      !notifications.find(
+        (_notification) => _notification.message === notification.message,
+      )
+    ) {
+      setNotifications([...notifications, notification]);
+    }
   };
 
   useEffect(() => {
