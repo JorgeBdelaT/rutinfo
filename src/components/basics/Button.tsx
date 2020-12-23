@@ -58,6 +58,7 @@ const ButtonContanier = styled.button<ButtonContanierProps>`
   justify-content: center;
   outline: none;
   padding: 1.5rem;
+  transition: all 0.3s;
   width: 100%;
 
   :hover,

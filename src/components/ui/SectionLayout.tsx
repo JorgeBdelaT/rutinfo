@@ -10,6 +10,9 @@ const SectionLayout: React.FC<SectionLayoutProps> = ({ children }) => {
 };
 
 const Section = styled.section`
+  display: flex;
+  flex-direction: column;
   position: relative;
+  width: 100vw;
 `;
 export default SectionLayout;

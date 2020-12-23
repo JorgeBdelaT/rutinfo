@@ -23,6 +23,19 @@ const HeaderContainer = styled.div`
   margin-bottom: 5rem;
   padding: 1rem 25rem;
   width: 100vw;
+
+  @media screen and (max-width: 87.5em) {
+    margin-bottom: 4rem;
+    padding: 1rem 14rem;
+  }
+  @media screen and (max-width: 56.25em) {
+    margin-bottom: 3rem;
+    padding: 1rem 10rem;
+  }
+  @media screen and (max-width: 37.5em) {
+    margin-bottom: 2rem;
+    padding: 1rem 4rem;
+  }
 `;
 
 const HeaderLink = styled.a`
@@ -47,6 +60,10 @@ const HeaderLogo = styled(HeaderLink)`
     font-size: 3.2rem;
     font-weight: 600;
     letter-spacing: 1px;
+
+    @media screen and (max-width: 56.25em) {
+      font-size: 2.6rem;
+    }
   }
 
   :hover {

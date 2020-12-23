@@ -54,7 +54,7 @@ interface NotificationContainerProps {
 
 const notificationAnimation = keyframes`
   0% { width: 0px; opacity: 0 }
-  90% { width: 105%; opacity: 0.8 }
+  85% { width: 115%; opacity: 0.75 }
   100% { width: 100%; opacity: 1 }
 `;
 
@@ -62,6 +62,7 @@ const NotificationContainer = styled.div<NotificationContainerProps>`
   animation-duration: 0.4s;
   animation-fill-mode: backwards;
   animation-name: ${notificationAnimation};
+  animation-timing-function: ease-in-out;
   background-color: var(
     ${(props) => (props.type === 'error' ? '--color-error' : '--color-success')}
   );
@@ -69,7 +70,6 @@ const NotificationContainer = styled.div<NotificationContainerProps>`
   color: var(--color-white);
   font-size: 1.6rem;
   font-weight: 600;
-  min-width: 15rem;
   padding: 1rem 1.8rem;
   white-space: nowrap;
 

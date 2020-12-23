@@ -14,6 +14,16 @@ const Container = styled.main`
 
   section {
     padding: 0 25rem;
+
+    @media screen and (max-width: 87.5em) {
+      padding: 0 12rem;
+    }
+    @media screen and (max-width: 56.25em) {
+      padding: 0 8rem;
+    }
+    @media screen and (max-width: 37.5em) {
+      padding: 0 2rem;
+    }
   }
 `;
 

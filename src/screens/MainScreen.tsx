@@ -38,14 +38,24 @@ const SwitchesContainer = styled.div`
   align-items: center;
   display: flex;
   justify-content: flex-start;
+
+  @media screen and (max-width: 31.25em) {
+    align-items: stretch;
+    flex-direction: column;
+  }
 `;
 
 const SwitchContainer = styled.div`
   background-color: var(--color-white);
   border-radius: 9px;
+  box-shadow: 0px 5px 8px 0px rgba(212, 210, 212, 1);
   flex: 1;
   margin: 2rem;
   padding: 4rem 5rem;
+
+  @media screen and (max-width: 37.5em) {
+    padding: 3rem 3rem;
+  }
 `;
 
 export default MainScreen;
