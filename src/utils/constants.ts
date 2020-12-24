@@ -10,3 +10,4 @@ export const REQUEST_ERROR_MSG = 'No se ha podido cargar la información';
 export const REQUEST_SUCCESS_MSG = 'Información cargada con éxito';
 export const WELCOME_MSG =
   'Consulta un rut para obtener información de una persona o empresa.';
+export const INVALID_FILE_MSG = 'Archivo inválido';

@@ -39,6 +39,7 @@ const SingleRut: React.FC = () => {
         <Input
           id="rut-input"
           value={rut}
+          type="text"
           onChange={(e) => setRut(formatRut(e.target.value))}
           placeholder="Ingresa un rut"
         />

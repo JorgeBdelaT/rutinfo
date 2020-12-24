@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { SectionLayout } from '../components/ui/';
-import { SingleRut } from '../components/core/';
+import { SingleRut, MultiRut } from '../components/core/';
 import { SwitchInput } from '../components/basics/';
 
 const MainScreen: React.FC = () => {
@@ -29,7 +29,7 @@ const MainScreen: React.FC = () => {
         </SwitchContainer>
       </SwitchesContainer>
       {singleRutOption && <SingleRut />}
-      {!singleRutOption && <div>sube un excel con ruts</div>}
+      {!singleRutOption && <MultiRut />}
     </SectionLayout>
   );
 };
