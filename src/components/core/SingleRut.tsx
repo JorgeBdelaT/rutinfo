@@ -4,10 +4,10 @@ import styled from 'styled-components';
 
 import { useRutInfo, useNotifications } from '../../hooks';
 import { INVALID_RUT_MSG } from '../../utils/constants';
-import { Button } from '../../components/basics';
+import { Button } from '../basics';
 import SingleRutInfo from './SingleRutInfo';
 
-const SingleRutInput: React.FC = () => {
+const SingleRut: React.FC = () => {
   const { addNotification } = useNotifications();
 
   const [rut, setRut] = useState('');
@@ -115,4 +115,4 @@ const Label = styled.label`
   margin-bottom: 2.5rem;
 `;
 
-export default SingleRutInput;
+export default SingleRut;

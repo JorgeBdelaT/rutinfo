@@ -1,1 +1,1 @@
-export { default as SingleRutInput } from './SingleRutInput';
+export { default as SingleRut } from './SingleRut';
