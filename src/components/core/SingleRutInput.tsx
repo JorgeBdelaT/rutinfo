@@ -1,16 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { validate as validateRut, format as formatRut } from 'rut.js';
 import styled from 'styled-components';
 
 import { useRutInfo, useNotifications } from '../../hooks';
 import { INVALID_RUT_MSG } from '../../utils/constants';
 import { Button } from '../../components/basics';
+import SingleRutInfo from './SingleRutInfo';
 
 const SingleRutInput: React.FC = () => {
   const { addNotification } = useNotifications();
 
   const [rut, setRut] = useState('');
   const [requestRutInfo, { data, loading, error }] = useRutInfo();
+
+  useEffect(() => {
+    if (data) {
+      setRut('');
+    }
+  }, [data, setRut]);
 
   const handleClick = async (e: React.FormEvent | React.MouseEvent) => {
     e.preventDefault();
@@ -42,10 +49,7 @@ const SingleRutInput: React.FC = () => {
           disabled={loading || !!error}
         />
       </Form>
-      <DataContainer>
-        {data && <pre>{JSON.stringify(data, null, 2)}</pre>}
-        {!data && <p>Consulta un rut para obtener información de la persona</p>}
-      </DataContainer>
+      <SingleRutInfo data={data} />
     </Container>
   );
 };
@@ -109,21 +113,6 @@ const Label = styled.label`
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 2.5rem;
-`;
-
-const DataContainer = styled.div`
-  align-self: stretch;
-  background-color: var(--color-white);
-  border-radius: 9px;
-  box-shadow: 0px 5px 8px 0px rgba(212, 210, 212, 1);
-  display: flex;
-  flex: 2;
-  margin: 2rem;
-  padding: 4rem 5rem;
-
-  @media screen and (max-width: 37.5em) {
-    padding: 3rem 3rem;
-  }
 `;
 
 export default SingleRutInput;

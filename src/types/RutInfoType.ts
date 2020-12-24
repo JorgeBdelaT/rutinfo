@@ -4,6 +4,8 @@ export type RutInfoType = {
   error: Error | undefined;
 };
 
+export type ActivityKeysType = 'giro' | 'codigo' | 'categoria' | 'afecta';
+
 export type ActivityType = {
   giro: string;
   codigo: number;
