@@ -9,7 +9,7 @@ import { Button } from '../basics';
 const MultiRut: React.FC = () => {
   const { addNotification } = useNotifications();
   const inputRef = useRef<any>();
-  const [file, setFile] = useState('');
+  const [file, setFile] = useState<File>();
   // const [loading, setLoading] = useState(true);
 
   const handleClick = (e: React.MouseEvent | React.FormEvent) => {
@@ -18,36 +18,46 @@ const MultiRut: React.FC = () => {
   };
 
   const handleFileChange = (e: any) => {
-    const {
-      target: {
-        validity,
-        files: [uploadedFile],
-      },
-    } = e;
+    const target = e.target as HTMLInputElement;
+    const { validity } = target;
 
     if (!validity.valid) {
       addNotification({ type: 'error', message: INVALID_FILE_MSG });
       return;
     }
+
+    const uploadedFile = target.files![0];
     setFile(uploadedFile);
+  };
+
+  const displayFileName = () => {
+    if (!file) return null;
+
+    return <FileName>{file.name}</FileName>;
   };
 
   return (
     <Container>
       <Form>
         <HiddenInput
-          value={file}
           ref={inputRef}
-          accept="application/xlsx"
+          accept=".xlsx, .xls, .csv"
           type="file"
           onChange={handleFileChange}
         />
         <Label>Sube un excel con ruts a consultar</Label>
+        {displayFileName()}
+        <Button
+          text="Elegir archivo"
+          onClick={handleClick}
+          // loading={loading}
+          // disabled={loading}
+        />
         <Button
           text="Consultar"
           onClick={handleClick}
           // loading={loading}
-          // disabled={loading}
+          disabled={!file}
         />
       </Form>
     </Container>
@@ -79,6 +89,12 @@ const Form = styled.form`
   margin: 2rem;
   padding: 4rem 5rem;
 
+  & > button {
+    :not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+
   /* @media screen and (max-width: 60em) {
     flex: 2;
   }
@@ -96,6 +112,16 @@ const Label = styled.label`
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 2.5rem;
+`;
+
+const FileName = styled.h4`
+  display: flex;
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 2.5rem;
+  margin-top: -1rem;
+  padding-left: 3rem;
+  color: var(--color-grey-dark-3);
 `;
 
 export default MultiRut;
