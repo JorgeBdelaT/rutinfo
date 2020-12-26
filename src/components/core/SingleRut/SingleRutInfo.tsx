@@ -5,8 +5,8 @@ import {
   RutData,
   ActivityKeysType,
   ActivityType,
-} from '../../types/RutInfoType';
-import { WELCOME_MSG } from '../../utils/constants';
+} from '../../../types/RutInfoType';
+import { WELCOME_MSG } from '../../../utils/constants';
 
 interface SingleRutInfoProps {
   data?: RutData;
