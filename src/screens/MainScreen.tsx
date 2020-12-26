@@ -6,7 +6,7 @@ import { SingleRut, MultiRut } from '../components/core/';
 import { SwitchInput } from '../components/basics/';
 
 const MainScreen: React.FC = () => {
-  const [singleRutOption, setSingleRutOption] = useState(true);
+  const [singleRutOption, setSingleRutOption] = useState(false);
 
   return (
     <SectionLayout>
