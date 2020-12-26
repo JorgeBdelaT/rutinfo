@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { validate as validateRut, format as formatRut } from 'rut.js';
 import styled from 'styled-components';
 
-import { useRutInfo, useNotifications } from '../../hooks';
-import { INVALID_RUT_MSG } from '../../utils/constants';
-import { Button } from '../../components/basics';
+import { useRutInfo, useNotifications } from '../../../hooks';
+import { INVALID_RUT_MSG } from '../../../utils/constants';
+import { Button } from '../../basics';
 import SingleRutInfo from './SingleRutInfo';
 
-const SingleRutInput: React.FC = () => {
+const SingleRut: React.FC = () => {
   const { addNotification } = useNotifications();
 
   const [rut, setRut] = useState('');
@@ -39,6 +39,7 @@ const SingleRutInput: React.FC = () => {
         <Input
           id="rut-input"
           value={rut}
+          type="text"
           onChange={(e) => setRut(formatRut(e.target.value))}
           placeholder="Ingresa un rut"
         />
@@ -115,4 +116,4 @@ const Label = styled.label`
   margin-bottom: 2.5rem;
 `;
 
-export default SingleRutInput;
+export default SingleRut;

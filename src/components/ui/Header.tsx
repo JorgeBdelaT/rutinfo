@@ -22,7 +22,10 @@ const HeaderContainer = styled.div`
   justify-content: space-between;
   margin-bottom: 5rem;
   padding: 1rem 25rem;
+  position: fixed;
+  top: 0;
   width: 100vw;
+  z-index: 999;
 
   @media screen and (max-width: 87.5em) {
     margin-bottom: 4rem;
