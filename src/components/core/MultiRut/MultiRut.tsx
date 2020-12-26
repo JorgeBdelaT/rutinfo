@@ -89,9 +89,11 @@ const MultiRut: React.FC = () => {
         </Form>
         <DisplayRutsToRequest ruts={rutsToRequest} setRuts={setRutsToRequest} />
       </Container>
-      <Container>
-        {data && <RutTable data={getTableData()} columns={RUT_TABLE_COLUMNS} />}
-      </Container>
+      {data && (
+        <Container>
+          <RutTable data={getTableData()} columns={RUT_TABLE_COLUMNS} />
+        </Container>
+      )}
     </>
   );
 };

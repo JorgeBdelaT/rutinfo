@@ -18,3 +18,4 @@ export const RUT_TABLE_COLUMNS = [
   { name: 'Rut', selector: 'rut' },
   { name: 'Razón social', selector: 'razon_social' },
 ];
+export const DOWNLOAD_FAILED = 'No se ha podido descargar el archivo';

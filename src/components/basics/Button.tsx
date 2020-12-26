@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import styled from 'styled-components';
 
@@ -6,7 +7,7 @@ import Loading from './Loading';
 interface ButtonProps {
   disabled?: boolean;
   loading?: boolean;
-  onClick: (e: React.FormEvent | React.MouseEvent) => void;
+  onClick: (e: any) => void;
   style?: React.CSSProperties;
   text: string;
 }
