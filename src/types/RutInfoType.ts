@@ -4,6 +4,12 @@ export type RutInfoType = {
   error: Error | undefined;
 };
 
+export type MultiRutInfoType = {
+  data?: RutData[];
+  loading: boolean;
+  error?: Error;
+};
+
 export type ActivityKeysType = 'giro' | 'codigo' | 'categoria' | 'afecta';
 
 export type ActivityType = {
@@ -17,4 +23,5 @@ export type RutData = {
   rut: string;
   razon_social: string;
   actividades: ActivityType[];
+  error?: string;
 };
