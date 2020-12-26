@@ -2,14 +2,29 @@ import React from 'react';
 import DataTable from 'react-data-table-component';
 import styled from 'styled-components';
 
+import { useNotifications, useDownloadRuts } from '../../../hooks';
+import { TableKeysType } from '../../../types/RutInfoType';
+import { DOWNLOAD_FAILED } from '../../../utils/constants';
+import { Button } from '../../basics';
+
 interface RutTableProps {
   data: {
-    [key: string]: string;
+    [key in TableKeysType]: string;
   }[];
   columns: { name: string; selector: string }[];
 }
 
 const RutTable: React.FC<RutTableProps> = ({ data, columns }) => {
+  const [
+    triggerDownload,
+    { loading: downloaLoading, error: downloadError },
+  ] = useDownloadRuts(data);
+  const { addNotification } = useNotifications();
+
+  if (downloadError) {
+    addNotification({ type: 'error', message: DOWNLOAD_FAILED });
+  }
+
   return (
     <Container>
       <DataTable
@@ -18,6 +33,12 @@ const RutTable: React.FC<RutTableProps> = ({ data, columns }) => {
         title="Ruts consultados"
         columns={columns}
         data={data}
+      />
+      <Button
+        text="Descargar Excel"
+        onClick={triggerDownload}
+        loading={downloaLoading}
+        disabled={!data || downloaLoading}
       />
     </Container>
   );
@@ -41,6 +62,10 @@ const Container = styled.div`
     font-family: inherit;
     font-size: 2rem;
     font-weight: 600;
+  }
+
+  & > button {
+    margin-top: 3rem;
   }
 `;
 

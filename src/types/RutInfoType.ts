@@ -25,3 +25,5 @@ export type RutData = {
   actividades: ActivityType[];
   error?: string;
 };
+
+export type TableKeysType = 'rut' | 'razon_social';
