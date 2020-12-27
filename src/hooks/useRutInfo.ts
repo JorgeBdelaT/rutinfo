@@ -28,15 +28,27 @@ const useRutInfo = (): [(rut: string) => void, RutInfoType] => {
 
       try {
         const response = await Axios.get(BASE_URL, { params: { rut } });
-        setState({ data: response.data, loading: false, error: undefined });
-        addNotification({
-          message: REQUEST_SUCCESS_MSG,
-          type: 'success',
-        });
+
+        if (response.data.error) {
+          setState({
+            data: undefined,
+            error: new Error(response.data.error),
+            loading: false,
+          });
+
+          addNotification({
+            message: REQUEST_ERROR_MSG,
+            type: 'error',
+          });
+        } else {
+          setState({ data: response.data, loading: false, error: undefined });
+          addNotification({
+            message: REQUEST_SUCCESS_MSG,
+            type: 'success',
+          });
+        }
       } catch (error) {
-        setState((state) => {
-          return { ...state, error, loading: false };
-        });
+        setState({ data: undefined, error, loading: false });
         addNotification({
           message: REQUEST_ERROR_MSG,
           type: 'error',

@@ -14,10 +14,10 @@ const SingleRut: React.FC = () => {
   const [requestRutInfo, { data, loading, error }] = useRutInfo();
 
   useEffect(() => {
-    if (data) {
+    if (data || error) {
       setRut('');
     }
-  }, [data, setRut]);
+  }, [data, error, setRut]);
 
   const handleClick = async (e: React.FormEvent | React.MouseEvent) => {
     e.preventDefault();
@@ -47,7 +47,7 @@ const SingleRut: React.FC = () => {
           text="Consultar"
           onClick={handleClick}
           loading={loading}
-          disabled={loading || !!error}
+          disabled={loading}
         />
       </Form>
       <SingleRutInfo data={data} />
