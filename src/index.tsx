@@ -1,15 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { SnackbarProvider } from 'notistack';
 import './index.css';
 import App from './App';
+import { NotificationsProvider } from './providers';
+import { Notifications } from './components/basics/';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <SnackbarProvider maxSnack={3}>
+    <NotificationsProvider>
       <App />
-    </SnackbarProvider>
+      <Notifications />
+    </NotificationsProvider>
   </React.StrictMode>,
   document.getElementById('root'),
 );

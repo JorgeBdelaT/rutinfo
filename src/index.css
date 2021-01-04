@@ -14,20 +14,8 @@
   --color-white: #fff;
   --color-black: #000;
 
-  --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
-  --shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.08);
-
-  --line: 1px solid var(--color-grey-light-2);
-
-  /* Screen breakpoint definitions */
-  --bp-2000: 125em;
-  --bp-1800: 112.5em;
-  --bp-1400: 87.5em;
-  --bp-1200: 75em;
-  --bp-1100: 68.75em;
-  --bp-900: 56.25em;
-  --bp-600: 37.5em;
-  --bp-500: 31.25em;
+  --color-success: #2bad30;
+  --color-error: #ff3366;
 }
 
 * {
@@ -49,7 +37,7 @@ html {
 body {
   background-color: var(--color-grey-light-1);
   color: var(--color-primary);
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 1.6;
@@ -60,7 +48,7 @@ a,
 a:visited,
 a:link {
   color: var(--color-primary-light);
-  font-weight: 600;
+  font-weight: 400;
   text-decoration: none;
 }
 
@@ -68,8 +56,9 @@ a:hover {
   color: var(--color-primary-dark);
 }
 
-.notistack {
-  font-size: 1.4rem;
+*::selection {
+  background-color: var(--color-primary-light);
+  color: var(--color-white);
 }
 
 /* Basic fontsize management */
@@ -78,23 +67,23 @@ a:hover {
     font-size: 70%;
   }
 }
-@media screen and (max-width: 112.5em) {
+@media screen and (max-width: 87.5em) {
   html {
     font-size: 56.25%;
   }
 }
-@media screen and (max-width: 87.5em) {
+@media screen and (max-width: 75em) {
   html {
     font-size: 50%;
   }
 }
-@media screen and (max-width: 75em) {
+@media screen and (max-width: 37.5em) {
   html {
     font-size: 43.75%;
   }
 }
-@media screen and (max-width: 37.5em) {
-  html {
-    font-size: 40%;
-  }
+
+#notifications-root {
+  position: relative;
+  z-index: 999;
 }
